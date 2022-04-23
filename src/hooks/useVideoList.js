@@ -49,6 +49,7 @@ const useVideoList = (page) => {
         setLoading(false);
       } catch (err) {
         console.log(err);
+        console.log(err.message);
         setLoading(false);
         setError(true);
       }

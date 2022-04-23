@@ -1,19 +1,19 @@
 import { useAuth } from "../contexts/AuthContex";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-const PublicRoute = () => {
-  const { currentUser } = useAuth();
-  return !currentUser ? <Outlet /> : <Navigate to="/" replace />;
-};
+// const PublicOutlet = () => {
+//   const { currentUser } = useAuth();
+//   return !currentUser ? <Outlet /> : <Navigate to="/" replace />;
+// };
 
-export default PublicRoute;
+// export default PublicOutlet;
 
 // jodi login kora tahle r login and sign in page e jabe na
 // this is my technique
-/*
-const PublicRoute = ({element: Element}) => {
-    const { currentUser } = useAuth();
+
+const PublicOutlet = ({ Element }) => {
+  const { currentUser } = useAuth();
   return !currentUser ? Element : <Navigate to="/" replace />;
 };
 
-export default PublicRoute; */
+export default PublicOutlet;

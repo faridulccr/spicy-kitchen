@@ -44,9 +44,9 @@ const Home = () => {
         </InfiniteScroll>
       )}
       {!error && !loading && videos.length === 0 && (
-        <div className="info">Data was not found!</div>
+        <div className="info">Data was not found! ( empty )</div>
       )}
-      {error && <div className="error">There was an error!</div>}
+      {error && <div className="error">There was an error!(server error) Please reload after 30 seconds</div>}
     </div>
   );
 };
