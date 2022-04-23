@@ -37,7 +37,8 @@ function App() {
               element={<PrivateOutlet Element={<Result />} />}
             />
             
-            <Route path="*" element={<h1>Data was not Found</h1>} />
+            {/* <Route path="*" element={<h1>Data was not Found</h1>} /> */}
+            <Route path="/react-quiz-web" element={<Home />} />
           </Routes>
         </Layout>
       </AuthProvider>
