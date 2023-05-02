@@ -35,7 +35,7 @@ const AuthProvider = ({ children }) => {
     }, []);
 
     // signUp function
-    async function signUp(email, password, username, photoURL = "") {
+    const signUp = async (email, password, username, photoURL) => {
         const auth = getAuth();
         await createUserWithEmailAndPassword(auth, email, password);
 
@@ -50,24 +50,36 @@ const AuthProvider = ({ children }) => {
         setCurrentUser({
             ...updatedUser,
         });
-    }
+    };
 
     // login function
-    function login(email, password) {
+    const login = (email, password) => {
         const auth = getAuth();
         return signInWithEmailAndPassword(auth, email, password); // return a promise
-    }
+    };
+
+    // google signIn
+    const googleSignIn = () => {
+        const auth = getAuth();
+    };
+
+    // github signIn
+    const githubSignIn = () => {
+        const auth = getAuth();
+    };
 
     // logout function
-    function logout() {
+    const logout = () => {
         const auth = getAuth();
         return signOut(auth); // return a promise
-    }
+    };
 
     const value = {
         currentUser,
         signUp,
         login,
+        googleSignIn,
+        githubSignIn,
         logout,
     };
 

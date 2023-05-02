@@ -1,0 +1,38 @@
+/* nav component */
+header {
+    min-width: 380px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    border-bottom: 1px solid #e5e5e5;
+    z-index: 1;
+    padding: 0 2%;
+}
+.nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+.nav ul {
+    list-style: none;
+    display: flex;
+    margin-bottom: 0;
+}
+
+.nav ul li {
+    font-weight: 600;
+    margin-right: 20px;
+    a {
+        font-size: 18px;
+    }
+}
+header .brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: aqua;
+}

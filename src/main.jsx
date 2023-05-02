@@ -5,16 +5,15 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // bootstrap import
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.min.js";
-import "./index.css";
+import "./index.scss";
 
 // components import
 import App from "./App";
 import ErrorPage from "./components/error-page/ErrorPage";
 import Home from "./components/home/Home";
-import PrivateRoute from "./PrivateRoute";
+// import PrivateRoute from "./PrivateRoute";
 import AuthProvider from "./providers/AuthProvider";
 import Login from "./routers/login/Login";
-import Profile from "./routers/profile/Profile";
 import SignUp from "./routers/signUp/SignUp";
 
 const router = createBrowserRouter([
@@ -35,14 +34,14 @@ const router = createBrowserRouter([
                 path: "/login",
                 element: <Login />,
             },
-            {
-                path: "/profile",
-                element: (
-                    <PrivateRoute>
-                        <Profile />
-                    </PrivateRoute>
-                ),
-            },
+            // {
+            //     path: "/profile",
+            //     element: (
+            //         <PrivateRoute>
+            //             <Profile />
+            //         </PrivateRoute>
+            //     ),
+            // },
         ],
     },
 ]);

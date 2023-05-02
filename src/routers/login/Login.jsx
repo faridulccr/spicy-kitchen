@@ -1,29 +1,17 @@
-import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useAuth } from "../../providers/AuthProvider";
+import image from "../../assets/images/login.svg";
+import Illustration from "../../components/illustration/Illustration";
+import LoginForm from "./LoginForm";
 
 const Login = () => {
-    const [loading, setLoading] = useState();
-    const [error, setError] = useState();
-    const { login } = useAuth();
-    const navigate = useNavigate();
-    const currentLocation = useLocation();
-
-    const submitHandler = async (e) => {
-        e.preventDefault();
-
-        try {
-            setError("");
-            setLoading(true);
-            await login(email, password);
-            navigate(currentLocation.state?.from || "/");
-        } catch (err) {
-            console.log(err);
-            setError("Failed to Log in!");
-            setLoading(false);
-        }
-    };
-    return <div>Login</div>;
+    return (
+        <>
+            <h1>Login to your account</h1>
+            <div className="column">
+                <Illustration image={image} />
+                <LoginForm />
+            </div>
+        </>
+    );
 };
 
 export default Login;
