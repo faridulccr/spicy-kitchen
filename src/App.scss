@@ -19,11 +19,8 @@
 }
 body {
     background-color: var(--bodyBackground);
-}
-
-#root {
-    max-width: 1280px;
-    min-width: 380px;
+    // max-width: 1280px;
+    min-width: 345px;
     margin: 0 auto;
 }
 
@@ -63,17 +60,17 @@ h4 {
 /* App component */
 .main {
     width: 100%;
-    padding: 4rem 0;
+    padding: 60px 3% 4rem;
     /* 1rem = 16px */
-}
-
-.container {
-    width: 90%;
-    margin: 2rem auto;
 }
 
 @media only screen and (max-width: 1023px) {
     .column {
         grid-template-columns: 1fr;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .main {
+        padding: 80px 3% 4rem;
     }
 }

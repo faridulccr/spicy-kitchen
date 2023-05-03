@@ -5,7 +5,7 @@ import LoginForm from "./LoginForm";
 const Login = () => {
     return (
         <>
-            <h1>Login to your account</h1>
+            <h1 className="mt-4">Login to your account</h1>
             <div className="column">
                 <Illustration image={image} />
                 <LoginForm />

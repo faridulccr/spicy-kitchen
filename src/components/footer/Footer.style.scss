@@ -1,0 +1,23 @@
+footer {
+    background-color: #fff;
+}
+
+footer a {
+    color: rgba(5, 121, 141, 0.836);
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+footer div .home:hover {
+    color: #000;
+    transform: scale(1.5);
+}
+
+footer a i {
+    transition: 0.4s;
+}
+
+footer a i:hover {
+    color: #000;
+    transform: scale(1.5);
+}

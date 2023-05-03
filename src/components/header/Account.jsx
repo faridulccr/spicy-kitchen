@@ -10,12 +10,11 @@ const Account = () => {
         <div className="account">
             {currentUser ? (
                 <>
-                    <span className="material-icons-outlined" title="account">
-                        account_circle
-                    </span>
-                    <span style={{ fontWeight: "bold" }}>
-                        {currentUser.displayName}
-                    </span>
+                    <img
+                        className="account-logo"
+                        src={currentUser.photoURL}
+                        title={currentUser.displayName}
+                    />
                     <span
                         className="material-icons-outlined"
                         onClick={logout}

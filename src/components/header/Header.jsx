@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <header>
             <Link to="/" className="brand">
-                name
+                Spicy Kitchen
             </Link>
             <nav className="nav">
                 <ul>

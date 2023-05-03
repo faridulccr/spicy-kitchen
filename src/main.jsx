@@ -13,6 +13,7 @@ import ErrorPage from "./components/error-page/ErrorPage";
 import Home from "./components/home/Home";
 // import PrivateRoute from "./PrivateRoute";
 import AuthProvider from "./providers/AuthProvider";
+import Blog from "./routers/blog/Blog";
 import Login from "./routers/login/Login";
 import SignUp from "./routers/signUp/SignUp";
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login />,
+            },
+            {
+                path: "/blog",
+                element: <Blog />,
             },
             // {
             //     path: "/profile",

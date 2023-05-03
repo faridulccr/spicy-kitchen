@@ -1,8 +1,11 @@
 import {
+    GithubAuthProvider,
+    GoogleAuthProvider,
     createUserWithEmailAndPassword,
     getAuth,
     onAuthStateChanged,
     signInWithEmailAndPassword,
+    signInWithPopup,
     signOut,
     updateProfile,
 } from "firebase/auth";
@@ -61,11 +64,15 @@ const AuthProvider = ({ children }) => {
     // google signIn
     const googleSignIn = () => {
         const auth = getAuth();
+        const GoogleProvider = new GoogleAuthProvider();
+        return signInWithPopup(auth, GoogleProvider);
     };
 
     // github signIn
     const githubSignIn = () => {
         const auth = getAuth();
+        const GithubProvider = new GithubAuthProvider();
+        return signInWithPopup(auth, GithubProvider);
     };
 
     // logout function
