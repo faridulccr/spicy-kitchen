@@ -10,6 +10,7 @@ const SignupForm = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const [photoURL, setPhotoURL] = useState("");
     const [agree, setAgree] = useState();
     const [loading, setLoading] = useState();
@@ -59,13 +60,19 @@ const SignupForm = () => {
                 required
             />
             <TextInput
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Enter password"
                 iconName="lock"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
             />
+            <p
+                className="show-password"
+                onClick={() => setShowPassword(!showPassword)}
+            >
+                {showPassword ? "Hide password" : "Show password"}
+            </p>
             <TextInput
                 type="text"
                 placeholder="Enter photo url"
