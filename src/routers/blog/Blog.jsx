@@ -10,7 +10,7 @@ const Blog = () => {
         const divElement = divRef.current;
         html2canvas(divElement).then((canvas) => {
             const imgData = canvas.toDataURL("image/png");
-            const pdf = new jsPDF("portrait", "pt", "letter");
+            const pdf = new jsPDF("landscape", "pt", [792, 1224]);
             pdf.addImage(imgData, "PNG", 0, 0);
             pdf.save("example.pdf");
         });
