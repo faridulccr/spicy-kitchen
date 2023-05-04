@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Spinner } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Button from "../../components/button/Button";
 import Checkbox from "../../components/checkbox/Checkbox";
@@ -86,8 +87,11 @@ const SignupForm = () => {
                 onChange={(e) => setAgree(e.target.checked)}
                 required
             />
+
             <Button type="submit" disabled={loading}>
-                <span>Submit Now</span>
+                <span>
+                    {loading ? <Spinner variant="danger" /> : "Submit Now"}
+                </span>
             </Button>
 
             {error && <p className="error">{error}</p>}

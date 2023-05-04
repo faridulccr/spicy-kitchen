@@ -11,9 +11,9 @@ import "./index.scss";
 import App from "./App";
 import ErrorPage from "./components/error-page/ErrorPage";
 import Home from "./components/home/Home";
-// import PrivateRoute from "./PrivateRoute";
 import chefsLoader from "./loaders/chefsLoader";
 import recipesLoader from "./loaders/recipesLoader";
+import PrivateRoute from "./PrivateRoute";
 import AuthProvider from "./providers/AuthProvider";
 import Blog from "./routers/blog/Blog";
 import Login from "./routers/login/Login";
@@ -43,20 +43,20 @@ const router = createBrowserRouter([
                 path: "/blog",
                 element: <Blog />,
             },
-            {
-                path: "/recipes/:chefsID",
-                element: <Recipes />,
-                loader: recipesLoader,
-            },
             // {
             //     path: "/recipes/:chefsID",
-            //     element: (
-            //         <PrivateRoute>
-            //             <Recipes />
-            //         </PrivateRoute>
-            //     ),
+            //     element: <Recipes />,
             //     loader: recipesLoader,
             // },
+            {
+                path: "/recipes/:chefsID",
+                element: (
+                    <PrivateRoute>
+                        <Recipes />
+                    </PrivateRoute>
+                ),
+                loader: recipesLoader,
+            },
         ],
     },
 ]);

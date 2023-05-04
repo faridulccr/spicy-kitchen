@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import food1 from "../../assets/images/food-1.jpg";
 import food2 from "../../assets/images/food-2.jpg";
 import food3 from "../../assets/images/food-3.jpg";
@@ -36,7 +37,11 @@ const Banner = () => {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={food1} className="d-block w-100" alt="..." />
+                        <LazyLoadImage
+                            src={food1}
+                            className="d-block w-100"
+                            alt="..."
+                        />
                         <div className="carousel-caption d-none d-md-block">
                             <h5>
                                 “A recipe has no soul. You, as the cook, must
@@ -45,7 +50,11 @@ const Banner = () => {
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src={food2} className="d-block w-100" alt="..." />
+                        <LazyLoadImage
+                            src={food2}
+                            className="d-block w-100"
+                            alt="..."
+                        />
                         <div className="carousel-caption d-none d-md-block">
                             <h5>
                                 “Food is symbolic of love when words are
@@ -54,7 +63,11 @@ const Banner = () => {
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src={food3} className="d-block w-100" alt="..." />
+                        <LazyLoadImage
+                            src={food3}
+                            className="d-block w-100"
+                            alt="..."
+                        />
                         <div className="carousel-caption d-none d-md-block">
                             <h5>
                                 “The best comfort food will always be greens,

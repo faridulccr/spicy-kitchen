@@ -1,0 +1,12 @@
+.recipe-card-container {
+    background-color: #cfecd5;
+    border-radius: 15px;
+}
+
+.my-toast-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 9999999999;
+}

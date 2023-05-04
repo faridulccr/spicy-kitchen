@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuth } from "../../providers/AuthProvider";
 import "./Account.style.scss";
 
@@ -25,8 +25,22 @@ const Account = () => {
                 </>
             ) : (
                 <>
-                    <Link to="/signup">Signup</Link>
-                    <Link to="/login">Login</Link>
+                    <NavLink
+                        to="/signup"
+                        className={({ isActive }) =>
+                            isActive ? "active-route" : ""
+                        }
+                    >
+                        Signup
+                    </NavLink>
+                    <NavLink
+                        to="/login"
+                        className={({ isActive }) =>
+                            isActive ? "active-route" : ""
+                        }
+                    >
+                        Login
+                    </NavLink>
                 </>
             )}
         </div>

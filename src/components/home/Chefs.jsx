@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { Spinner } from "react-bootstrap";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useNavigate } from "react-router-dom";
 
 const Chefs = ({ data }) => {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState();
+
+    const viewDetails = () => {
+        setLoading(true);
+        navigate(`/recipes/${data.id}`);
+    };
     return (
         <div className="col-sm-12 col-md-6 col-lg-4 p-2 mb-3">
             <div
@@ -10,32 +18,27 @@ const Chefs = ({ data }) => {
                 style={{ height: "620px", overflow: "auto" }}
             >
                 <div>
-                    <img
-                        className="rounded-3"
-                        style={{ height: "250px", width: "100%" }}
-                        src={data.image}
-                        alt=""
-                    />
+                    <LazyLoadImage height={250} src={data.image} alt="" />
                 </div>
                 <div className="mt-3">
-                    <h2 className="text-white">{data.name}</h2>
+                    <h2 className="text-white fw-bold">{data.name}</h2>
+                    <p className="text-primary">
+                        Experience: {data.experience} years
+                    </p>
                     <p className="text-white">{data.bio}</p>
                     <p className="text-white">
                         Number of recipes: {data.numRecipes}
                     </p>
-                    <p className="text-white">
-                        Experience: {data.experience} years
-                    </p>
-                    <p className="text-white">Rating: {data.rating}/5</p>
+                    <p className="text-warning">likes: {data.likes}</p>
                 </div>
                 <div>
                     <button
-                        onClick={() => {
-                            navigate(`/recipes/${data.id}`);
-                        }}
+                        onClick={viewDetails}
+                        disabled={loading}
                         className="btn btn-primary d-block mx-auto w-75 py-3 rounded-3"
                     >
-                        View Recipes
+                        {loading && <Spinner />}
+                        {!loading && "View Recipes"}
                     </button>
                 </div>
             </div>
