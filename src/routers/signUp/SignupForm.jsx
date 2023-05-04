@@ -37,7 +37,7 @@ const SignupForm = () => {
         } catch (err) {
             console.log(err);
             console.log(err.message);
-            setError("Failed to create an account!");
+            setError("Your email has already used! Please use another");
             setLoading(false);
         }
     }
