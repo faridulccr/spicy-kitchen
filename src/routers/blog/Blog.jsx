@@ -12,7 +12,7 @@ const Blog = () => {
             const imgData = canvas.toDataURL("image/png");
             const pdf = new jsPDF("landscape", "pt", [792, 1224]);
             pdf.addImage(imgData, "PNG", 0, 0);
-            pdf.save("example.pdf");
+            pdf.save("Spicy-kitchen.pdf");
         });
     };
 
