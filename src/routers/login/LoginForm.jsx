@@ -58,55 +58,52 @@ const LoginForm = () => {
     };
 
     return (
-        <div>
+        <div style={{ position: "relative" }}>
             {emailLoading && (
                 <div
-                    className="d-flex justify-content-center align-items-center"
+                    className="loader-sec d-flex justify-content-center align-items-center"
                     style={{ height: "400px" }}
                 >
                     <Spinner />
                 </div>
             )}
-            {!emailLoading && (
-                <Form
-                    action="#"
-                    style={{ height: "350px" }}
-                    onSubmit={submitHandler}
+
+            <Form
+                action="#"
+                style={{ height: "360px" }}
+                onSubmit={submitHandler}
+            >
+                <TextInput
+                    type="email"
+                    placeholder="Enter email"
+                    iconName="alternate_email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
+                <TextInput
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter password"
+                    iconName="lock"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
+                <p
+                    className="show-password"
+                    onClick={() => setShowPassword(!showPassword)}
                 >
-                    <TextInput
-                        type="email"
-                        placeholder="Enter email"
-                        iconName="alternate_email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                    <TextInput
-                        type={showPassword ? "text" : "password"}
-                        placeholder="Enter password"
-                        iconName="lock"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                    <p
-                        className="show-password"
-                        onClick={() => setShowPassword(!showPassword)}
-                    >
-                        {showPassword ? "Hide password" : "Show password"}
-                    </p>
-                    <Button type="submit" disabled={emailLoading}>
-                        <span>Log In</span>
-                    </Button>
-
-                    {error && <p className="error">{error}</p>}
-
-                    <div className="info">
-                        Don't have an account? <Link to="/signup">Signup</Link>{" "}
-                        instead.
-                    </div>
-                </Form>
-            )}
+                    {showPassword ? "Hide password" : "Show password"}
+                </p>
+                {error && <p className="error">{error}</p>}
+                <Button type="submit" disabled={emailLoading}>
+                    <span>Log In</span>
+                </Button>
+                <div className="info">
+                    Don't have an account? <Link to="/signup">Signup</Link>{" "}
+                    instead.
+                </div>
+            </Form>
 
             <div className="alt-login-btn-container">
                 <button

@@ -66,6 +66,15 @@ h4 {
     padding: 60px 0 4rem;
     /* 1rem = 16px */
 }
+.blog-page-background {
+    background-image: url("https://t3.ftcdn.net/jpg/04/42/06/34/360_F_442063430_OjLo5sHK0twuUk2hCGWpjLphEHiLcamL.jpg");
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 120px;
+}
 
 @media only screen and (max-width: 1023px) {
     .column {

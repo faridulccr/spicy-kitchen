@@ -1,26 +1,68 @@
-import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-import React, { useRef } from "react";
+import React from "react";
 import { Button, Card, Container } from "react-bootstrap";
 
 const Blog = () => {
-    const divRef = useRef();
+    // Define a function to generate a PDF for the entire page
+    const generatePDF = async () => {
+        const divSelectors = [
+            "div1",
+            "div2",
+            "div3",
+            "div4",
+            "div5",
+            "div6",
+            "div7",
+            "div8",
+        ];
+
+        const headerText = document.getElementById("heading-1").innerHTML;
+
+        // Define an array to store the text content
+        const textArray = [];
+        // Loop through each div element and extract its text content
+        for (const selector of divSelectors) {
+            const element = document.querySelector(`#${selector}`);
+            if (element) {
+                textArray.push(element.innerText);
+            }
+        }
+
+        // Join the text content into a single string with page breaks
+        const text = textArray.join("\n\n");
+
+        // Create a new PDF document using jspdf
+        const pdf = new jsPDF("p", "mm", "a4");
+
+        pdf.setFontSize(8);
+        pdf.text(
+            "Copyrights by Md Faridul Islam (Blogs - Spicy Kitchen)",
+            15,
+            10
+        );
+
+        pdf.setFontSize(26);
+        pdf.text(headerText, 15, 20, { maxWidth: 180, align: "left" });
+
+        // Add the text content to the PDF
+        pdf.setFontSize(12);
+        pdf.text(text, 15, 40, { maxWidth: 180, align: "left" });
+
+        // Save the PDF document
+        pdf.save("Spicy-Kitchen.pdf");
+    };
 
     const handleDownload = () => {
-        const divElement = divRef.current;
-        html2canvas(divElement).then((canvas) => {
-            const imgData = canvas.toDataURL("image/png");
-            const pdf = new jsPDF("landscape", "pt", [792, 1224]);
-            pdf.addImage(imgData, "PNG", 0, 0);
-            pdf.save("Spicy-kitchen.pdf");
-        });
+        generatePDF();
     };
 
     return (
-        <div>
+        <div className="blog-page-background text-white">
             <div>
                 <div className="text-center mt-3">
-                    <h1>My Blog</h1>
+                    <h1 className="text-white" id="heading-1">
+                        Questions n Answers
+                    </h1>
                 </div>
                 <Container>
                     <div className="text-center">
@@ -33,14 +75,14 @@ const Blog = () => {
                             Download PDF
                         </Button>
                     </div>
-                    <div ref={divRef}>
-                        <Card className="mt-3 bg-success">
+                    <div>
+                        <Card className="mt-3 mb-4 bg-success">
                             <Card.Body>
-                                <Card.Title>
+                                <Card.Title className="text-white" id="div1">
                                     1. Tell us the differences between
                                     uncontrolled and controlled components?
                                 </Card.Title>
-                                <Card.Text>
+                                <Card.Text className="text-white" id="div2">
                                     A controlled component is a UI element whose
                                     value is controlled by the parent component
                                     or by the state of the application. In other
@@ -77,13 +119,13 @@ const Blog = () => {
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                        <Card className="mt-3 bg-success">
+                        <Card className="mt-3 mb-4 bg-success">
                             <Card.Body>
-                                <Card.Title>
+                                <Card.Title className="text-white" id="div3">
                                     2. How to validate React props using
                                     PropTypes?
                                 </Card.Title>
-                                <Card.Text>
+                                <Card.Text className="text-white" id="div4">
                                     React provides a built-in library called
                                     PropTypes for validating the props of a
                                     React component. PropTypes allow developers
@@ -94,13 +136,13 @@ const Blog = () => {
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                        <Card className="mt-3 bg-success">
+                        <Card className="mt-3 mb-4 bg-success">
                             <Card.Body>
-                                <Card.Title>
+                                <Card.Title className="text-white" id="div5">
                                     3. Tell us the difference between nodejs and
                                     express js?
                                 </Card.Title>
-                                <Card.Text>
+                                <Card.Text className="text-white" id="div6">
                                     Node.js and Express.js are both popular web
                                     development technologies, but they serve
                                     different purposes. Node.js is an
@@ -125,13 +167,13 @@ const Blog = () => {
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                        <Card className="mt-3 bg-success">
+                        <Card className="mt-3 mb-4 bg-success">
                             <Card.Body>
-                                <Card.Title>
+                                <Card.Title className="text-white" id="div7">
                                     4. What is a custom hook, and why will you
                                     create a custom hook?
                                 </Card.Title>
-                                <Card.Text>
+                                <Card.Text className="text-white" id="div8">
                                     In React, a custom hook is a reusable
                                     function that encapsulates common logic and
                                     stateful behavior that can be shared between
