@@ -51,6 +51,9 @@ h4 {
     align-items: center;
 }
 
+#pending {
+    height: calc(100vh - 200px);
+}
 .route-container {
     padding: 0 3%;
 }
@@ -81,8 +84,21 @@ h4 {
         grid-template-columns: 1fr;
     }
 }
+@media screen and (max-width: 992px) {
+    #pending {
+        height: calc(100vh - 240px);
+    }
+}
 @media only screen and (max-width: 500px) {
     .main {
         padding: 80px 0 4rem;
+    }
+    #pending {
+        height: calc(100vh - 260px);
+    }
+}
+@media screen and (max-width: 345px) {
+    #pending {
+        height: calc(100vh - 280px);
     }
 }
