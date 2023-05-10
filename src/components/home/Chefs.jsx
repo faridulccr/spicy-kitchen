@@ -1,22 +1,14 @@
-import React, { useState } from "react";
-import { Spinner } from "react-bootstrap";
+import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useNavigate } from "react-router-dom";
+import "./Chef.style.scss";
 
 const Chefs = ({ data }) => {
     const navigate = useNavigate();
-    const [loading, setLoading] = useState();
 
-    const viewDetails = () => {
-        setLoading(true);
-        navigate(`/recipes/${data.id}`);
-    };
     return (
         <div className="col-sm-12 col-md-6 col-lg-4 p-2 mb-3">
-            <div
-                className="border rounded-3 p-3 bg-dark"
-                style={{ height: "620px", overflow: "auto" }}
-            >
+            <div className="chef-card border rounded-3 p-3 bg-dark">
                 <div>
                     <LazyLoadImage height={250} src={data.image} alt="" />
                 </div>
@@ -33,12 +25,10 @@ const Chefs = ({ data }) => {
                 </div>
                 <div>
                     <button
-                        onClick={viewDetails}
-                        disabled={loading}
+                        onClick={() => navigate(`/recipes/${data.id}`)}
                         className="btn btn-primary d-block mx-auto w-75 py-3 rounded-3"
                     >
-                        {loading && <Spinner />}
-                        {!loading && "View Recipes"}
+                        View Recipes
                     </button>
                 </div>
             </div>

@@ -10,7 +10,6 @@ import {
     updateProfile,
 } from "firebase/auth";
 import React, { useContext, useEffect, useState } from "react";
-import { Spinner } from "react-bootstrap";
 import "../firebase.config";
 
 // export const AuthContext = React.createContext();
@@ -94,12 +93,11 @@ const AuthProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider value={value}>
-            {loading && (
+            {/* {loading && (
                 <div className="vw-100 vh-100 d-flex justify-content-center align-items-center">
-                    {" "}
                     <Spinner />
                 </div>
-            )}
+            )} */}
             {!loading && children}
         </AuthContext.Provider>
     );

@@ -1,35 +1,19 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
 import Account from "./Account";
+import ActiveRoute from "./ActiveRoute";
 import "./Header.style.scss";
 
 const Header = () => {
     return (
         <header>
-            <Link to="/" className="brand">
-                Spicy Kitchen
-            </Link>
+            <h1 className="brand">Spicy Kitchen</h1>
             <nav className="nav">
                 <ul>
                     <li>
-                        <NavLink
-                            to="/"
-                            className={({ isActive }) =>
-                                isActive ? "active-route" : ""
-                            }
-                        >
-                            Home
-                        </NavLink>
+                        <ActiveRoute to="/">Home</ActiveRoute>
                     </li>
                     <li>
-                        <NavLink
-                            to="/blog"
-                            className={({ isActive }) =>
-                                isActive ? "active-route" : ""
-                            }
-                        >
-                            Blog
-                        </NavLink>
+                        <ActiveRoute to="/blog">Blog</ActiveRoute>
                     </li>
                 </ul>
                 <Account />

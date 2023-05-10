@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { Spinner } from "react-bootstrap";
+import React from "react";
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 import CustomerTestimonials from "../CustomerTestimonials/CustomerTestimonials";
 import PreBookSection from "../PreBookSection/PreBookSection";
 import Banner from "../banner/Banner";
 import Chefs from "./Chefs";
 
 const Home = () => {
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
+    useTitle("Home");
     const chefsData = useLoaderData();
 
-    useEffect(() => {
-        if (Array.isArray(chefsData) && chefsData.length > 0) {
-            setError(false);
-            setLoading(false);
-        } else {
-            setError(true);
-        }
-    }, []);
     return (
         <div>
             <Banner />
@@ -26,17 +17,7 @@ const Home = () => {
                 <h2 className="mt-5 text-center fw-bold mb-3">
                     Exploring the World of Chefs
                 </h2>
-                {loading && !error && (
-                    <div
-                        className="d-flex justify-content-center align-items-center"
-                        style={{ height: "200px" }}
-                    >
-                        <Spinner />
-                    </div>
-                )}
-                {error && <h1>data not found!</h1>}
-                {!loading &&
-                    !error &&
+                {Array.isArray(chefsData) &&
                     chefsData.map((data, index) => (
                         <Chefs key={index} data={data} />
                     ))}

@@ -1,8 +1,10 @@
 import image from "../../assets/images/signup.svg";
 import Illustration from "../../components/illustration/Illustration";
+import useTitle from "../../hooks/useTitle";
 import SignupForm from "./SignupForm";
 
-const Singup = () => {
+const Signup = () => {
+    useTitle("Signup");
     return (
         <div className="route-container">
             <h1 className="mt-4">Create an account</h1>
@@ -14,4 +16,4 @@ const Singup = () => {
     );
 };
 
-export default Singup;
+export default Signup;

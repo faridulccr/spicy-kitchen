@@ -1,8 +1,10 @@
 import jsPDF from "jspdf";
 import React from "react";
 import { Button, Card, Container } from "react-bootstrap";
+import useTitle from "../../hooks/useTitle";
 
 const Blog = () => {
+    useTitle("Blog");
     // Define a function to generate a PDF for the entire page
     const generatePDF = async () => {
         const divSelectors = [

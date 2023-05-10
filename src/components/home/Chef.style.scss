@@ -1,0 +1,16 @@
+.chef-card {
+    height: 620px;
+    overflow: auto;
+}
+
+@media screen and (max-width: 900px) {
+    .chef-card {
+        height: 660px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .chef-card {
+        height: fit-content;
+    }
+}
