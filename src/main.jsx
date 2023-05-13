@@ -11,8 +11,6 @@ import "./index.scss";
 import App from "./App";
 import ErrorPage from "./components/error-page/ErrorPage";
 import Home from "./components/home/Home";
-import chefsLoader from "./loaders/chefsLoader";
-import recipesLoader from "./loaders/recipesLoader";
 import PrivateRoute from "./PrivateRoute";
 import AuthProvider from "./providers/AuthProvider";
 import Blog from "./routers/blog/Blog";
@@ -29,7 +27,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />,
-                loader: chefsLoader,
+                loader: () => fetch(`${import.meta.env.VITE_SERVER_API}/chefs`),
             },
             {
                 path: "/signup",
@@ -43,11 +41,6 @@ const router = createBrowserRouter([
                 path: "/blog",
                 element: <Blog />,
             },
-            // {
-            //     path: "/recipes/:chefsID",
-            //     element: <Recipes />,
-            //     loader: recipesLoader,
-            // },
             {
                 path: "/recipes/:chefsID",
                 element: (
@@ -55,7 +48,12 @@ const router = createBrowserRouter([
                         <Recipes />
                     </PrivateRoute>
                 ),
-                loader: recipesLoader,
+                loader: ({ params }) =>
+                    fetch(
+                        `${import.meta.env.VITE_SERVER_API}/chefs/${
+                            params.chefsID
+                        }`
+                    ),
             },
         ],
     },
